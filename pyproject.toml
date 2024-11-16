@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "tracker api"
+version = "0.1.0"
+description = ""
+authors = ["Muhammed Uluel <mhmmduluel@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.13"
+django = "^5.1.3"
+django-timescaledb = "^0.2.13"
+environs = "^11.2.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
