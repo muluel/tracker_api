@@ -131,7 +131,6 @@ class DeviceViewSet(
         return Response(serializer.data)
 
     def create(self, request, *args, **kwargs):
-        print("works")
         serializer = DeviceSerializer(data=request.data)
         if not serializer.is_valid():
             return Response(serializer.errors, status=400)
