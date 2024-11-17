@@ -1,4 +1,4 @@
-# Tracer API
+# Tracker API
 
 ## Table of Contents
 
@@ -9,7 +9,7 @@
 
 ## Overview
 
-The Tracer API provides device location tracking and monitoring capabilities.
+The Tracker API provides device location tracking and monitoring capabilities.
 
 ### Additional
 
