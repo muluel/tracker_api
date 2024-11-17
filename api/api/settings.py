@@ -153,5 +153,3 @@ broker_url = env("AMQP_URI", "amqp://guest:guest@localhost:5672/")
 CELERY_BROKER_URL = broker_url
 CELERY_RESULT_BACKEND = "".join(["rpc://", broker_url.split("://")[-1]])
 CELERY_BROKER_CONNECTION_RETRY_ON_STARTUP = True
-
-APPEND_SLASH = False
