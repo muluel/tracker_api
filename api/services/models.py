@@ -53,7 +53,9 @@ class Location(models.Model):
     )
     latitude = models.DecimalField(max_digits=10, decimal_places=6)
     longitude = models.DecimalField(max_digits=10, decimal_places=6)
-    altitude = models.DecimalField(max_digits=10, decimal_places=2)
+    altitude = models.DecimalField(
+        max_digits=10, decimal_places=2, null=True, blank=True
+    )
     speed = models.DecimalField(max_digits=10, decimal_places=2)
 
     time = TimescaleDateTimeField(interval="1 day")

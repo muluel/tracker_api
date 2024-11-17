@@ -7,21 +7,21 @@ from drf_spectacular.views import (
     SpectacularRedocView,
     SpectacularSwaggerView,
 )
-from services.urls import router
+from services.urls import router as services
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("", include(router.urls)),
-    path("api/schema/", SpectacularAPIView.as_view(), name="schema"),
     path(
-        "api/",
+        "docs/",
         SpectacularSwaggerView.as_view(url_name="schema"),
         name="swagger-ui",
     ),
+    path("docs/schema/", SpectacularAPIView.as_view(), name="schema"),
     path(
-        "api/schema/redoc/",
+        "docs/redoc/",
         SpectacularRedocView.as_view(url_name="schema"),
         name="redoc",
     ),
+    path("api/", include(services.urls)),
     re_path(r"^static/(?P<path>.*)$", serve, {"document_root": settings.STATIC_ROOT}),
 ]

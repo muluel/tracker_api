@@ -27,7 +27,7 @@ SECRET_KEY = "django-insecure-8k@o-2x-w##&48g8m8jd)rzbysx)_)b3_1ghcn%nxf(f6=(!z$
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -133,23 +133,25 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 
 REST_FRAMEWORK = {
-    "DEFAULT_PERMISSION_CLASSES": [
-        "rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly"
-    ],
+    "DEFAULT_PERMISSION_CLASSES": [],
     "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
     "DEFAULT_PAGINATION_CLASS": "rest_framework.pagination.PageNumberPagination",
     "PAGE_SIZE": 10,
-    "DEFAULT_AUTHENTICATION_CLASSES": [
-        "rest_framework.authentication.SessionAuthentication"
-    ],
+    "DEFAULT_AUTHENTICATION_CLASSES": [],
 }
 
 SPECTACULAR_SETTINGS = {
-    "TITLE": "Your Project API",
-    "DESCRIPTION": "Your project description",
+    "TITLE": "Tracker API",
+    "DESCRIPTION": "This project made for Evreka. Developed by Muhammed Uluel.",
     "VERSION": "1.0.0",
     "SERVE_INCLUDE_SCHEMA": False,
-    # OTHER SETTINGS
 }
 
 STATIC_ROOT = BASE_DIR / "staticfiles"
+
+broker_url = env("AMQP_URI", "amqp://guest:guest@localhost:5672/")
+CELERY_BROKER_URL = broker_url
+CELERY_RESULT_BACKEND = "".join(["rpc://", broker_url.split("://")[-1]])
+CELERY_BROKER_CONNECTION_RETRY_ON_STARTUP = True
+
+APPEND_SLASH = False
