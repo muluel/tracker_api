@@ -1,7 +1,7 @@
 from celery import shared_task
 from datetime import datetime, timezone
 
-from services.models import Location, Device
+from services.models import Location
 
 
 @shared_task
