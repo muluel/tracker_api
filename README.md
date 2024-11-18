@@ -54,7 +54,11 @@ The following optimizations can be implemented to enhance system performance and
     cd tracker_api
     ```
 
-4. Start the application
+4. Navigate to the project directory
+
+    Create a .env file. Examples in .env.examples
+
+5. Start the application
 
     ```sh
     docker compose up -d
